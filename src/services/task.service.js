@@ -3,6 +3,7 @@ const Tasks = require('../models/Task')
 const findAllTasksService = async () => {
 
   const tasks = await Tasks.find();
+  
 
   return tasks;
 };
@@ -13,28 +14,21 @@ const findByIdTaskService = async (idParam) => {
 
 };
 
-const createTaskService = (newTask) => {
-  const newId = Tasks.length + 1;
-  newTask.id = newId;
-  tasks.push(newTask);
-  return newTask;
+const createTaskService = async (newTask) => {
+ 
+  const taskOriginated = await Tasks.create (newTask);
+  return taskOriginated;
 };
 
-const updateTaskService = (id, taskEdition) => {
-  taskEdition['id'] = id;
-  const taskIndex = tasks.findIndex((task) => task.id == id);
-  tasks[taskIndex] = taskEdition
-  return taskEdition;
+const updateTaskService = async (id, taskEdition) => {
+  const taskUpdate = await Tasks.findByIdAndUpdate (id, taskEdition);
+  return taskUpdate ;
 
 };
 
-const deleteTaskService = (id) => {
-  tasks.forEach((task, index) => {
-    if (task.id == id) {
-      tasks.splice(index, 1);
+const deleteTaskService = async (id) => {
+  return await Tasks.findByIdAndDelete(id);
     }
-  });
-}
 
 
 

@@ -2,10 +2,10 @@ const routes = require('express').Router();
 const controllerTasks = require('../controllers/task.controller');
 
 
-routes.get('/allTasks', controllerTasks.findAllTasksController);
-routes.get('/task/:id', controllerTasks.findByIdTaskController);
-routes.post('/create', controllerTasks.createTaskController);
-routes.put('/update/:id', controllerTasks.updateTaskController);
-routes.delete('/delete/:id', controllerTasks.deleteTaskController);
+routes.get('/', controllerTasks.findAllTasksController);
+routes.get('/:id', controllerTasks.findByIdTaskController);
+routes.post('/', controllerTasks.createTaskController);
+routes.put('/:id', controllerTasks.updateTaskController);
+routes.delete('/:id', controllerTasks.deleteTaskController);
 
 module.exports = routes;

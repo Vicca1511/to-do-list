@@ -2,10 +2,8 @@ const Tasks = require('../models/Task')
 
 const findAllTasksService = async () => {
 
-  const tasks = await Tasks.find();
-  
-
-  return tasks;
+  const alltasks = await Tasks.find();
+  return alltasks;
 };
 
 const findByIdTaskService = async (idParam) => {
@@ -15,20 +13,20 @@ const findByIdTaskService = async (idParam) => {
 };
 
 const createTaskService = async (newTask) => {
- 
-  const taskOriginated = await Tasks.create (newTask);
+
+  const taskOriginated = await Tasks.create(newTask);
   return taskOriginated;
 };
 
 const updateTaskService = async (id, taskEdition) => {
-  const taskUpdate = await Tasks.findByIdAndUpdate (id, taskEdition);
-  return taskUpdate ;
+  const taskUpdate = await Tasks.findByIdAndUpdate(id, taskEdition);
+  return taskUpdate;
 
 };
 
 const deleteTaskService = async (id) => {
   return await Tasks.findByIdAndDelete(id);
-    }
+}
 
 
 

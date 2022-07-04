@@ -19,7 +19,9 @@ const createTaskService = async (newTask) => {
 };
 
 const updateTaskService = async (id, taskEdition) => {
-  const taskUpdate = await Tasks.findByIdAndUpdate(id, taskEdition);
+  const taskUpdate = await Tasks.findByIdAndUpdate(id, taskEdition).setOptions({
+    returnOriginal: false,
+  });
   return taskUpdate;
 
 };

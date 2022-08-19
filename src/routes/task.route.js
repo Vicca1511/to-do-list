@@ -5,7 +5,7 @@ const { idValidation, bodyObjectValidation } = require('../middlewares/task.midd
 
 routes.get('/',controllerTasks.findAllTasksController);
 routes.get('/:id', idValidation , controllerTasks.findByIdTaskController);
-routes.post('/',bodyObjectValidation, controllerTasks.createTaskController);
+routes.post('/', bodyObjectValidation, controllerTasks.createTaskController);
 routes.put('/:id', idValidation, bodyObjectValidation , controllerTasks.updateTaskController);
 routes.delete('/:id', idValidation, controllerTasks.deleteTaskController);
 

@@ -6,9 +6,8 @@ const idValidation = (req, res, next) => {
         return res.status(400).send({ message: "ID nonexistent!" })
     }
     next();
-
-
 }
+
 const bodyObjectValidation = (req, res, next) => {
     const task = req.body;
     if (!task || !task.nome || !task.descricao) {
@@ -17,11 +16,10 @@ const bodyObjectValidation = (req, res, next) => {
 
     }
     next();
-
 }
 
 module.exports = {
-    
+
     idValidation,
     bodyObjectValidation,
 
